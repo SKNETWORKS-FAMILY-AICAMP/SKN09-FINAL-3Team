@@ -190,7 +190,7 @@ def merge_all_tsv(input_dir="./laws_tsv", output_path="./patent_laws_merged.tsv"
     print(f"\n✅ 병합 완료! 저장 경로: {output_path} (총 {len(merged_df)}개 항목)")
 
 
-# ✅ TSV → JSONL 변환 (input: 항목 / output: 내용)
+# ✅ TSV → JSONL 변환 (input: [법률명] 항목 / output: 내용)
 def convert_tsv_to_jsonl(tsv_path="./patent_laws_merged.tsv", jsonl_path="./patent_laws_merged.jsonl"):
     if not Path(tsv_path).exists():
         print(f"[ERROR] TSV 파일이 존재하지 않습니다: {tsv_path}")
@@ -199,9 +199,12 @@ def convert_tsv_to_jsonl(tsv_path="./patent_laws_merged.tsv", jsonl_path="./pate
     df = pd.read_csv(tsv_path, sep="\t", dtype=str)
     with open(jsonl_path, "w", encoding="utf-8") as f:
         for _, row in df.iterrows():
-            input_text = row["항목"].strip()
-            output_text = row["내용"].strip()
-            f.write(f'{{"input": "{input_text}", "output": "{output_text}"}}\n')
+            law = row["법률규정"].strip()
+            section = row["항목"].strip()
+            content = row["내용"].strip()
+            input_text = f"[{law}] {section}"
+            f.write(f'{{"input": "{input_text}", "output": "{content}"}}\n')
+
     print(f"\n✅ JSONL 변환 완료! 저장 경로: {jsonl_path}")
 
 if __name__ == "__main__":
