@@ -1,4 +1,4 @@
-<!-- 히스토리 패널 (기본적으로 닫혀있음) -->
+<!-- 히스토리 패널 (기본적으로 닫힘) -->
 <div class="history-panel collapsed" id="historyPanel">
   <div class="history-toggle" onclick="App.history.togglePanel()">
     <div class="history-icon">📋</div>
@@ -8,27 +8,26 @@
       <div class="section-header">
         <h4>My History</h4>
       </div>
-      <div class="history-items" id="myHistoryItems">
-        <!-- 동적으로 생성됨 -->
-      </div>
+      <div class="history-items" id="myHistoryItems"></div>
     </div>
-    
     <div class="history-section">
       <div class="section-header">
         <h4>My Team History</h4>
-        <button class="refresh-btn" onclick="App.history.refreshTeam()" title="새로고침">🔄</button>
+        <button class="refresh-btn"
+                onclick="App.history.refreshTeam()"
+                title="새로고침">🔄</button>
       </div>
-      <div class="history-items" id="teamHistoryItems">
-        <!-- 동적으로 생성됨 -->
-      </div>
+      <div class="history-items" id="teamHistoryItems"></div>
     </div>
-    
     <div class="new-template-section">
-      <button class="new-template-btn" onclick="App.template.createNew()">
+      <button class="new-template-btn"
+              onclick="App.template.createNew()">
         <span class="btn-icon">📝</span>
         New Template
       </button>
     </div>
   </div>
 </div>
-<script src="/static/assist/js/history.js"></script>
+
+<!-- 캐시 무효화용 버전 파라미터 -->
+<script src="/static/assist/js/history.js?v=20250609_1300"></script>

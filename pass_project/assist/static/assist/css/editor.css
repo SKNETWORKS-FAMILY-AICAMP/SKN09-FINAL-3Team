@@ -225,27 +225,20 @@
   background-color: #ffffff;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   font-size: 12px;
   border: 1px solid #e9ecef;
+}
+
+.sub-item .sub-icon {
+  pointer-events: auto;
+}
+.sub-item .sub-title {
+  pointer-events: auto;
 }
 
 .sub-item:hover {
   background-color: #e3f2fd;
   border-color: #1a237e;
-}
-/* ✏️ 버튼 */
-.rename-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;      /* 제목 뒤쪽으로 */
-  font-size: 14px;
-  color: #888;
-}
-
-.rename-btn:hover {
-  color: #0F1E46;
 }
 
 .sub-icon {

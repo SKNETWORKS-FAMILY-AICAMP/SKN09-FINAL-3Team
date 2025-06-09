@@ -38,7 +38,7 @@ App.draft = {
     
     App.utils.showNotification('📄 특허 명세서 초안이 마크다운 형식으로 생성되었습니다.');
   },
-  
+
   // 저장 기능
   save() {
     // 직접 수정 모드인 경우 textarea의 내용을 가져옴
@@ -60,8 +60,20 @@ App.draft = {
       String(now.getMinutes()).padStart(2, '0');
     
     App.utils.showNotification(`💾 특허명세서_${timestamp}로 저장되었습니다.`);
+    
+    // ============= [추가] 히스토리 최신 그룹에 버전 저장 =============
+    if (App.history && typeof App.history.handleSaveWithVersion === 'function') {
+      const latestGroup = App.history.data.myHistory[0];
+      if (latestGroup) {
+        App.history.handleSaveWithVersion(latestGroup.id);
+      } else {
+        // 히스토리 그룹이 하나도 없으면 새로 추가
+        App.history.addToHistory("새로운 특허 명세서");
+      }
+    }
+    // =============================================================
   },
-  
+
   // 직접 수정 모드 활성화
   enableEdit() {
     const draftContent = document.getElementById('draftContent');
@@ -91,7 +103,7 @@ App.draft = {
       App.utils.showNotification('✏️ 수정 모드가 활성화되었습니다. 자유롭게 편집하세요.');
     }
   },
-  
+
   // 수정 취소
   cancelEdit() {
     const draftContent = document.getElementById('draftContent');
@@ -119,7 +131,7 @@ App.draft = {
       App.utils.showNotification('🔄 수정이 취소되었습니다.');
     }
   },
-  
+
   // 수정 완료
   saveEdit() {
     const textarea = document.getElementById('draft_text');
@@ -150,7 +162,7 @@ App.draft = {
       App.utils.showNotification('✅ 수정이 완료되었습니다.');
     }
   },
-  
+
   // AI 요청 기능
   requestAI() {
     const prompt = window.prompt('AI에게 요청할 수정 사항을 입력하세요:\n(예: "청구항을 더 구체적으로 작성해주세요", "기술분야 설명을 보완해주세요")');
@@ -175,7 +187,7 @@ App.draft = {
       // 실제로는 서버 API를 호출하여 AI가 수정한 내용을 받아와야 함
     }, 2000);
   },
-  
+
   // 다운로드 기능 (모달 열기)
   download() {
     if (App.download) {
@@ -185,7 +197,7 @@ App.draft = {
       this.fallbackDownload();
     }
   },
-  
+
   // 백업 다운로드 함수
   fallbackDownload() {
     if (!App.data.currentDraftContent) {
