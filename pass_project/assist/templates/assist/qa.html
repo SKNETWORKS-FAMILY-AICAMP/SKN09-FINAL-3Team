@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI 특허 Q&A</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'assist/css/common.css' %}">
+  <link rel="stylesheet" href="{% static 'assist/css/qa.css' %}">
+</head>
+<body>
+  <!-- 공통 헤더 -->
+  {% include 'assist/includes/header.html' %}
+
+  <!-- Q&A 메인 컨테이너 -->
+  <div class="main-container">
+    <div class="qa-layout">
+      <div class="qa-container">
+        <!-- 초기 Q&A 화면 -->
+        <div class="qa-initial" id="qaInitial">
+          <h1 class="qa-title">AI 특허 Q&A</h1>
+          <p class="qa-subtitle">특허 관련 모든 궁금증을 해결해드립니다.</p>
+          
+          <div class="qa-help-section">
+            <div class="help-content">
+              <h3>이런 질문을 해보세요!</h3>
+              <div class="help-description">
+                <div class="question-item" onclick="App.qa.setQuestion(this.textContent)">
+                  특허 출원 절차와 필요 서류는 무엇인가요?
+                </div>
+                <div class="question-item" onclick="App.qa.setQuestion(this.textContent)">
+                  선출원주의는 어떤 적용원리는 무엇인가요?
+                </div>
+                <div class="question-item" onclick="App.qa.setQuestion(this.textContent)">
+                  특허권의 존속기간과 연장은 어떻게 되나요?
+                </div>
+                <div class="question-item" onclick="App.qa.setQuestion(this.textContent)">
+                  PCT 국제출원의 장점은 무엇인가요?
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="qa-input-container">
+            <input type="text" class="qa-input" id="qaInput" placeholder="특허에 관련된 무엇이든 물어보세요.">
+            <button class="qa-send-btn" onclick="App.qa.sendQuestion()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- 답변 화면 -->
+        <div class="qa-response" id="qaResponse" style="display: none;">
+          <div class="response-container">
+            <h2 class="response-title">질문에 대한 답변입니다.</h2>
+            
+            <div class="qa-conversation">
+              <div class="user-question-box" id="userQuestion">
+                <div class="question-icon">💡 질문 내용</div>
+                <div class="question-text">
+                  <!-- 사용자 질문이 여기에 표시됩니다 -->
+                </div>
+              </div>
+              
+              <div class="ai-answer-box">
+                <h4 class="answer-title">답변</h4>
+                <div class="ai-answer" id="aiAnswer">
+                  <!-- AI 답변이 여기에 표시됩니다 -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="qa-input-container">
+              <input type="text" class="qa-input" id="qaInputResponse" placeholder="추가 질문이 있으시면 무엇이든 물어보세요.">
+              <button class="qa-send-btn" onclick="App.qa.sendFollowupQuestion()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript 모듈 -->
+  <script src="{% static 'assist/js/common.js' %}"></script>
+  <script src="{% static 'assist/js/qa.js' %}"></script>
+</body>
+</html>
