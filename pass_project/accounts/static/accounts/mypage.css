@@ -1,0 +1,272 @@
+body {
+  margin: 0;
+  background: #0F1E46;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 중앙 정렬 */
+  padding: 24px 32px;
+  gap: 12px;
+  position: relative;
+  background: #0F1E46;
+}
+
+/* 로고와 텍스트 묶기 */
+.header-content {
+  position: absolute;
+  left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.page-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+
+/* 전체 콘텐츠 영역 */
+.container {
+  padding: 0 32px 32px 32px;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 270px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px 36px;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;
+  line-height: 3em;
+}
+.sidebar li a {
+  text-decoration: none;
+}
+
+/* 메인 콘텐츠 */
+.main-panel {
+  flex: 1;
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.panel-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0F1E46;
+  margin-bottom: 24px;
+}
+
+/* 정보 카드 */
+.info-card {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #0F1E46;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.info-label-zone {
+  width: 140px;
+  background: #0F1E46;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 24px;
+}
+
+.info-value-zone {
+  flex: 1;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  color: #000; /* 텍스트 색상 명시 */
+  font-size: 16px;
+}
+
+/* 닉네임 수평 정렬 */
+.nickname-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 버튼 */
+.btn-change {
+  background: #0F1E46;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+/* 모달 전체 배경 (반투명 블러 처리 포함) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 모달 숨김용 클래스 */
+.modal.hidden {
+  display: none;
+}
+
+/* 모달 콘텐츠 박스 */
+.modal-content {
+  width: 563px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 30px 40px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.25);
+}
+
+/* 제목 */
+.modal-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* 구분선 */
+.modal-content hr {
+  border: 1px solid #9E9E9E;
+  margin: 16px 0;
+}
+
+/* 라벨-값 줄 */
+.modal-row {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.modal-label {
+  font-size: 18px;
+  font-weight: 700;
+  width: 120px;
+}
+
+.modal-value {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* 인풋 영역 */
+.modal-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.modal-input input {
+  width: 260px;
+  height: 40px;
+  border: 1px solid #5A5A5A;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 16px;
+}
+
+/* 버튼 그룹 */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.modal-buttons button,
+.modal-input button {
+  height: 45px;
+  padding: 0 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+}
+
+.modal-input button {
+  background: #0F1E46;
+  color: #fff;
+}
+
+.modal-buttons .cancel-btn {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.modal-buttons .confirm-btn {
+  background: #0F1E46;
+  color: #fff;
+}

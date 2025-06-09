@@ -1,0 +1,189 @@
+<!-- 왼쪽 패널: 템플릿 작성 -->
+<div class="panel template-panel">
+  <div class="panel-header">
+    <div class="panel-title">템플릿 작성 목록</div>
+  </div>
+  <div class="panel-body">
+    <div class="input-guidelines">
+      <h3>특허, 어렵지 않아요</h3>
+      <p>당신이 알고있는 기술을 말해보세요.</p>
+      <p>똘똘이 AI 변리사가 기술을 자료와 함께 분석하고 기술혁신을 차별화하여 업계의 내용을 토대로 명세서 정리를 도와드립니다.</p>
+      <p>양식의 생성 시 구체적일수록 더 나은 특허 명세서 발명의 기재가 가능합니다.</p>
+    </div>
+    
+    <form id="templateForm" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <!-- 01. 기술명 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">01</div>
+          <div class="section-title">기술명 입력</div>
+          <div class="optional">선택 사항</div>
+        </div>
+        <div class="input-help">기술명에 대하여 작성하세요.</div>
+        <input type="text" name="tech_name" class="text-input" placeholder="200자 이내로 작성하세요." maxlength="200">
+        <div class="char-counter"><span class="current-count">0</span>/200</div>
+      </div>
+      
+      <!-- 02. 기술 설명 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">02</div>
+          <div class="section-title">기술 설명 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">기술 설명에 대하여 작성하세요.</div>
+        <textarea name="tech_description" class="textarea-input" placeholder="3000자 이내로 작성하세요." required maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 03. 해결 문제 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">03</div>
+          <div class="section-title">해결 문제 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">해결 문제에 대하여 작성하세요.</div>
+        <textarea name="problem_solved" class="textarea-input" placeholder="기존 문제점과 해결 방법에 대하여 작성하세요." required maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 04. 기술 차별성 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">04</div>
+          <div class="section-title">기술 차별성 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">기술의 차별성에 대하여 작성하세요.</div>
+        <textarea name="tech_differentiation" class="textarea-input" placeholder="기존 기술과의 차별점을 작성하세요." required maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 05. 활용 분야 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">05</div>
+          <div class="section-title">활용 분야 입력</div>
+          <div class="optional">선택 사항</div>
+        </div>
+        <div class="input-help">기술의 활용 분야에 대하여 작성하세요.</div>
+        <textarea name="application_field" class="textarea-input" placeholder="기술이 활용될 수 있는 분야를 작성하세요." maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 06. 구성 요소 및 기능 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">06</div>
+          <div class="section-title">구성 요소 및 기능 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">기술의 구성 요소 및 기능에 대하여 작성하세요.</div>
+        <textarea name="components_functions" class="textarea-input" placeholder="시스템의 주요 구성 요소와 기능을 작성하세요." required maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 07. 구현 방식 예 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">07</div>
+          <div class="section-title">구현 방식 예 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">기술의 구현 방식 예를 작성하세요.</div>
+        <textarea name="implementation_example" class="textarea-input" placeholder="구체적인 구현 방식과 예시를 작성하세요." required maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 08. 도면 설명 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">08</div>
+          <div class="section-title">도면 설명 입력</div>
+          <div class="optional">선택 사항</div>
+        </div>
+        <div class="input-help">도면에 대한 설명을 작성하세요.</div>
+        <textarea name="drawing_description" class="textarea-input" placeholder="도면에 대한 설명을 작성하세요." maxlength="3000"></textarea>
+        <div class="char-counter"><span class="current-count">0</span>/3000</div>
+      </div>
+
+      <!-- 09. 출원인 정보 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">09</div>
+          <div class="section-title">출원인 정보 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">출원인 정보를 작성하세요.</div>
+        
+        <div class="person-info-container">
+          <div class="person-info-row">
+            <label>이름</label>
+            <input type="text" name="applicant_name" class="text-input" placeholder="출원인의 이름을 입력하세요." required maxlength="100">
+          </div>
+          
+          <div class="person-info-row">
+            <label>국적</label>
+            <div class="select-wrapper">
+              <select name="applicant_nationality" class="select-input" required>
+                <option value="대한민국">대한민국</option>
+                <option value="미국">미국</option>
+                <option value="일본">일본</option>
+                <option value="중국">중국</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="person-info-row">
+            <label>주소</label>
+            <input type="text" name="applicant_address" class="text-input" placeholder="출원인의 주소를 입력하세요." required maxlength="200">
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. 발명자 정보 입력 -->
+      <div class="input-section">
+        <div class="input-header">
+          <div class="section-number">10</div>
+          <div class="section-title">발명자 정보 입력</div>
+          <div class="required">* 필수 입력</div>
+        </div>
+        <div class="input-help">발명자 정보를 작성하세요.</div>
+        
+        <div class="person-info-container">
+          <div class="person-info-row">
+            <label>이름</label>
+            <input type="text" name="inventor_name" class="text-input" placeholder="발명자의 이름을 입력하세요." required maxlength="100">
+          </div>
+          
+          <div class="person-info-row">
+            <label>국적</label>
+            <div class="select-wrapper">
+              <select name="inventor_nationality" class="select-input" required>
+                <option value="대한민국">대한민국</option>
+                <option value="미국">미국</option>
+                <option value="일본">일본</option>
+                <option value="중국">중국</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="person-info-row">
+            <label>주소</label>
+            <input type="text" name="inventor_address" class="text-input" placeholder="발명자의 주소를 입력하세요." required maxlength="200">
+          </div>
+        </div>
+      </div>
+      
+      <div class="button-row">
+        <button type="submit" name="convert" class="btn btn-primary">변환</button>
+        <button type="button" name="submit_template" class="btn btn-secondary" style="display: none;">기존방식</button>
+      </div>
+    </form>
+  </div>
+</div>

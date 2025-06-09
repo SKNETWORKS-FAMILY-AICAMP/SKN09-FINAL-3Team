@@ -1,0 +1,27 @@
+<!-- AI 평가 레이아웃 (숨겨짐) -->
+<div class="evaluation-layout" id="evaluationLayout" style="display: none;">
+  <div class="panel draft-panel-left">
+    <div class="panel-header">
+      <div class="panel-title">생성된 특허 명세서 초안</div>
+    </div>
+    <div class="panel-body">
+      <!-- 마크다운 렌더링 영역이 JavaScript로 동적 생성됨 -->
+    </div>
+  </div>
+  
+  <div class="panel evaluation-panel">
+    <div class="panel-header">
+      <div class="panel-title">초안에 대한 평가</div>
+    </div>
+    <div class="panel-body">
+      <div class="evaluation-content" id="evaluationContent">
+        <!-- AI 평가 결과가 여기에 표시됩니다 -->
+      </div>
+      
+      <div class="button-row">
+        <button type="button" class="btn btn-secondary" onclick="App.navigation.backToNormal()">돌아가기</button>
+        <button type="button" class="btn btn-success" onclick="App.draft.save()">저장</button>
+      </div>
+    </div>
+  </div>
+</div>

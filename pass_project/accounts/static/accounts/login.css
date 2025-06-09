@@ -1,0 +1,269 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo';
+    src: url('/static/accounts/fonts/SpoqaHanSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+body {
+    font-family: 'SpoqaHanSans', sans-serif;
+}
+
+#login-container {
+    padding: 3px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: left; 
+    flex-direction: row;
+    padding: 5px;
+}
+
+#logo-img{
+    margin-top: 3px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#logo-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0F1E46;
+}
+
+.container-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-container {
+    padding: 5px;
+    width: 55%;
+}
+
+.right-container{
+    padding: 5px;
+    background-color: #0F1E46;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-container-align-center{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+}
+
+.login-container {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 377px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interval {
+    margin-top: 30px;
+}
+
+.login-title{
+    font-size: 16px;
+    color: #0F1E46;
+    padding: 5px;
+    font-weight: bold;
+    height: 30px;
+    margin-left: 28px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.login-id-pw-font {
+    font-size: 12px;
+    color: #0F1E46;
+    margin-left: 6px;
+}
+
+#input-id,
+#input-pw {
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 340px;
+    height: 30px;
+    margin-top: 8px;
+    margin-left: 6px;
+}
+
+#input-id:focus,
+#input-pw:focus {
+    outline: none;
+    padding: 3px;
+    box-shadow:
+    0 0 5px 2px rgba(100, 149, 237, 0.5),
+    0 0 10px 5px rgba(100, 149, 237, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#input-id::placeholder,
+#input-pw::placeholder {
+    padding: 3px;
+    color: #ccc;
+    font-size: 12px;
+}
+
+#warn-id,
+#warn-pw {
+    color: red;
+    font-size: 8px;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.login-check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 28px;
+    width: 100%;
+}
+
+#input-login-check {
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#input-login-check:checked {
+    border: none;
+    cursor: pointer;
+}
+
+#login-status {
+    color: #888888;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid gray;
+    position: relative;
+    cursor: pointer;
+}
+
+/* 얇은 체크 표시 (gray) */
+input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+    opacity: 1;
+}
+
+/* 체크되었을 때는 배경 핑크, 체크 흰색 */
+input[type="checkbox"]:checked {
+    background-color: #FFB6C1;
+    border: none;
+}
+
+input[type="checkbox"]:checked::after {
+    border-color: white;
+}
+
+
+.login-button {
+    margin-left: 6px;
+}
+
+#login-btn {
+    padding: 3px;
+    border-radius: 8px;
+    background-color: #0F1E46;
+    text-align: center;
+    font-size: 12px;
+    width: 347px;
+    height: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.right-container-align-center {
+    height: 70%;
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.introduce-box {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.introduce-title {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+#bulb-lights {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.checkmark{
+    width: 13px;
+    height: 13px;
+    margin-right: 10px;
+}
+
+.introduce-content div{
+    margin-bottom: 30px;
+    padding: 5px;
+    margin-left: 12px;
+    font-size: 12px;
+}
+
+.chapter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

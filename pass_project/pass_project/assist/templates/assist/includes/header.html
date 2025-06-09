@@ -1,0 +1,27 @@
+{% load static %}
+<!-- 숨겨진 헤더 (마우스 호버시 나타남) -->
+<div class="hidden-header" id="hiddenHeader">
+  <div class="header-content">
+    <div class="logo-section">
+      <a href="/main" class="logo-link">
+        <img src="{% static 'assist/images/logo.png' %}" alt="로고" class="logo-icon">
+        <div class="logo-text">PASS</div>
+      </a>
+    </div>
+    
+    <div class="nav-center">
+      <div class="nav-item active" onclick="App.navigation.switchToAssist()">AI assist</div>
+      <div class="nav-item" onclick="App.navigation.switchToQA()">AI Q&A</div>
+    </div>
+    
+    <div class="user-section">
+      <div class="user-info">
+        <span class="username">rornfl02 님</span>
+      </div>
+      <div class="user-buttons">
+        <button class="user-btn" onclick="App.user.goToMyPage()">마이페이지</button>
+        <button class="user-btn logout-btn" onclick="App.user.logout()">로그아웃</button>
+      </div>
+    </div>
+  </div>
+</div>

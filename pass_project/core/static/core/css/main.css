@@ -1,0 +1,545 @@
+/* core/static/core/css/main.css */
+
+/* ── 공통 기본 설정 ── */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: white;
+  text-align: center;
+  padding-top: 60px;  /* 헤더 높이만큼 띄움 */
+}
+
+/* ── 헤더(네비게이션) ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;                       
+  display: flex;
+  align-items: center;
+  padding: 0 40px;                    
+  background-color: #fafafa;          
+  color: #0F1E46;                     
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 200px;                
+}
+
+.logo img {
+  height: 50px;                      
+  margin-right: 10px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  flex: 1;                            
+}
+
+nav a {
+  margin: 0 180px;                    
+  font-weight: bold;
+  font-size: 18px;                   
+  color: #0F1E46;                    
+  text-decoration: none;
+  white-space: nowrap;               
+}
+
+nav a:last-child {
+  margin-left: 20%;                 
+  margin-right: 0;                   
+  font-size: 16px;                   
+  font-weight: normal;               
+  color: #555;                       
+}
+
+/* ── 첫 화면(.hero) ── */
+.hero {
+  width: 100%;
+  height: calc(100vh - 60px);  
+  background: url('../images/background.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .subtext { font-size: 24px; margin-bottom: 10px; }
+.hero h1       { font-size: 48px; margin: 20px 0; }
+.hero .highlight { color: pink; }
+.hero .footer-text { margin-top: 20px; font-size: 20px; color: #eee; }
+
+/* ── 섹션 공통 스타일 ── */
+.section {
+  width: 100%;
+}
+
+/* 2) Features, 3) Intro 섹션은 each 100vh */
+.section.features {
+  height: 100vh;
+  background: url('../images/service_features.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.section.info {
+  height: 100vh;
+  background: url('../images/service_intro.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* ── 이후 ai_assist, ai_evaluate, ai_recommend 섹션 ── */
+.section.ai-assist,
+.section.ai-evaluate,
+.section.ai-recommend,
+.section.ai-qa {
+  padding: 0;               
+}
+
+/* 공통: .content 래퍼를 Flexbox로 가로 정렬 */
+.section .content {
+  display: flex;
+  flex-wrap: wrap;          
+  align-items: center;
+  margin: 0;                
+  width: 100%;              
+}
+
+/* 텍스트 영역, 이미지 영역 모두 같은 비율로 flex:1 */
+.section .text,
+.section .image {
+  flex: 1;
+  min-width: 300px;         
+  padding: 20px;
+}
+
+/* 기본적으로 이미지는 너비 100%, 높이 auto */
+.section .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;       
+}
+
+/* ── “ai-assist” 섹션 전체 수정 ── */
+.section.ai-assist {
+  height: calc(100vh - 60px);  
+  padding: 0;
+  /* 왼쪽(텍스트) 50%는 짙은 파란색, 오른쪽(이미지) 50%는 흰색 */
+  background: linear-gradient(to right, #0F1E46 50%, #ffffff 50%);
+  margin: 0;
+  color: #ffffff;             
+}
+
+/* .content 내부 flex 조정: 화면 전체 너비 사용 */
+.section.ai-assist .content {
+  display: flex;
+  flex-direction: row;        
+  align-items: stretch;       
+  height: 100%;               
+  width: 100%;
+  margin: 0;
+}
+
+/* ── 왼쪽: 텍스트 영역 ── */
+.section.ai-assist .text {
+  flex: 1;                    
+  height: 100%;               
+  padding: 40px 20px;         
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    
+  align-items: flex-start;    /* 왼쪽 정렬로 변경 */
+  text-align: left;           /* 텍스트도 왼쪽 정렬 */
+  background-color: transparent;
+}
+
+/* “PASS는 이런 서비스를 지원해요.” 줄 */
+.intro-line {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.intro-line .icon-check {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* 큰 제목 */
+.section.ai-assist .text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* 설명 텍스트 */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 500px; /* 최대 너비를 줘서 가독성 확보 */
+}
+
+/* 기능 목록 (bullets) */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-list li .icon-toggle {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* ── 오른쪽: 이미지 영역 ── */
+.section.ai-assist .image {
+  flex: 1;                    
+  height: 100%;               
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  padding: 0;
+  margin: 0;
+}
+
+/* 이미지가 비율 유지하며 부모 너비(화면 절반) 안에 들어맞게 */
+.section.ai-assist .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+
+
+/* ── “ai-evaluate” 섹션 전체 수정 ── */
+.section.ai-evaluate {
+  height: calc(100vh - 60px);   
+  padding: 0;
+  /* 왼쪽(이미지) 50%는 흰색, 오른쪽(텍스트) 50%는 짙은 파란색 */
+  background: linear-gradient(to right, #ffffff 50%, #0F1E46 50%);
+  margin: 0;
+  color: #ffffff;             
+}
+
+/* .content 내부 flex 조정: 화면 전체 너비 사용 */
+.section.ai-evaluate .content {
+  display: flex;
+  flex-direction: row;        
+  align-items: stretch;       
+  height: 100%;               
+  width: 100%;
+  margin: 0;
+}
+
+/* 왼쪽: 이미지 영역 */
+.section.ai-evaluate .image {
+  flex: 1;                       /* 화면 너비의 절반 차지 */
+  height: 100%;                  /* 부모 높이 꽉 채움 */
+  background-color: transparent; /* 그라데이션에서 흰색 절반 유지 */
+  display: flex;
+  justify-content: flex-start;   /* 이미지 왼쪽 정렬 */
+  align-items: center;           /* 이미지 세로 중앙 정렬 */
+  padding: 0;
+  margin: 0;
+}
+
+.section.ai-evaluate .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 오른쪽: 텍스트 영역 */
+.section.ai-evaluate .text {
+  flex: 1;                       /* 화면 너비의 절반 차지 */
+  height: 100%;                  /* 부모 높이 꽉 채움 */
+  padding: 40px 0px 40px 60px;            /* 상하 40px, 좌우 20px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* 수직 중앙 정렬 */
+  align-items: flex-start;       /* ① 왼쪽 정렬 */
+  text-align: left;              /* 텍스트 내부는 왼쪽 정렬 */
+  background-color: transparent; /* 그라데이션에서 파란색 절반 유지 */
+  color: #ffffff;                /* 텍스트는 흰색 */          
+}
+
+/* ── “PASS는 이런 서비스를 지원해요.” 줄 (intro-line) ── */
+.intro-line {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;           /* 아래 여백 */
+}
+
+.intro-line .icon-check {
+  width: 20px;                   /* ② 아이콘 크기 절반으로 줄임 */
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* ── 큰 제목 ── */
+.section.ai-evaluate .text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;           /* 아래 여백 */
+}
+
+/* ── 설명 텍스트 ── */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;           /* 아래 여백 */
+  max-width: 500px;              /* 가독성을 위한 최대 너비 */
+}
+
+/* ── 기능 목록 (feature-list) ── */
+.feature-list {
+  list-style: none;              /* ③ 불릿(.) 제거 */
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;           /* 항목 간격 */
+}
+
+.feature-list li .icon-toggle {
+  width: 20px;                   /* ② 아이콘 크기 절반으로 줄임 */
+  height: 20px;
+  margin-right: 12px;            /* 아이콘과 텍스트 간격 */
+}
+
+
+
+
+
+/* ── “ai-recommend” 섹션 전체 수정 ── */
+.section.ai-recommend {
+  height: calc(100vh - 60px);  
+  padding: 0;
+  /* 왼쪽(텍스트) 50%는 짙은 파란색, 오른쪽(이미지) 50%는 흰색 */
+  background: linear-gradient(to right, #0F1E46 50%, #ffffff 50%);
+  margin: 0;
+  color: #ffffff;             
+}
+
+/* .content 내부 flex 조정: 화면 전체 너비 사용 */
+.section.ai-recommend .content {
+  display: flex;
+  flex-direction: row;        
+  align-items: stretch;       
+  height: 100%;               
+  width: 100%;
+  margin: 0;
+}
+
+/* ── 왼쪽: 텍스트 영역 ── */
+.section.ai-recommend .text {
+  flex: 1;                    
+  height: 100%;               
+  padding: 40px 20px;         
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    
+  align-items: flex-start;    /* 왼쪽 정렬로 변경 */
+  text-align: left;           /* 텍스트도 왼쪽 정렬 */
+  background-color: transparent;
+}
+
+/* “PASS는 이런 서비스를 지원해요.” 줄 */
+.intro-line {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.intro-line .icon-check {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* 큰 제목 */
+.section.ai-recommend .text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* 설명 텍스트 */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 500px; /* 최대 너비를 줘서 가독성 확보 */
+}
+
+/* 기능 목록 (bullets) */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-list li .icon-toggle {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* ── 오른쪽: 이미지 영역 ── */
+.section.ai-recommend .image {
+  flex: 1;                    
+  height: 100%;               
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  padding: 0;
+  margin: 0;
+}
+
+/* 이미지가 비율 유지하며 부모 너비(화면 절반) 안에 들어맞게 */
+.section.ai-recommend .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+
+
+/* ── “ai-qa" 섹션 전체 수정 ── */
+.section.ai-qa {
+  height: calc(100vh - 60px);   
+  padding: 0;
+  /* 왼쪽(이미지) 50%는 흰색, 오른쪽(텍스트) 50%는 짙은 파란색 */
+  background: linear-gradient(to right, #ffffff 50%, #0F1E46 50%);
+  margin: 0;
+  color: #ffffff;             
+}
+
+/* .content 내부 flex 조정: 화면 전체 너비 사용 */
+.section.ai-qa .content {
+  display: flex;
+  flex-direction: row;        
+  align-items: stretch;       
+  height: 100%;               
+  width: 100%;
+  margin: 0;
+}
+
+/* 왼쪽: 이미지 영역 */
+.section.ai-qa .image {
+  flex: 1;                       /* 화면 너비의 절반 차지 */
+  height: 100%;                  /* 부모 높이 꽉 채움 */
+  background-color: transparent; /* 그라데이션에서 흰색 절반 유지 */
+  display: flex;
+  justify-content: flex-start;   /* 이미지 왼쪽 정렬 */
+  align-items: center;           /* 이미지 세로 중앙 정렬 */
+  padding: 0;
+  margin: 0;
+}
+
+.section.ai-qa .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 오른쪽: 텍스트 영역 */
+.section.ai-qa .text {
+  flex: 1;                       /* 화면 너비의 절반 차지 */
+  height: 100%;                  /* 부모 높이 꽉 채움 */
+  padding: 40px 0px 40px 60px;            /* 상하 40px, 좌우 20px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* 수직 중앙 정렬 */
+  align-items: flex-start;       /* ① 왼쪽 정렬 */
+  text-align: left;              /* 텍스트 내부는 왼쪽 정렬 */
+  background-color: transparent; /* 그라데이션에서 파란색 절반 유지 */
+  color: #ffffff;                /* 텍스트는 흰색 */          
+}
+
+/* ── “PASS는 이런 서비스를 지원해요.” 줄 (intro-line) ── */
+.intro-line {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;           /* 아래 여백 */
+}
+
+.intro-line .icon-check {
+  width: 20px;                   /* ② 아이콘 크기 절반으로 줄임 */
+  height: 20px;
+  margin-right: 12px;
+}
+
+/* ── 큰 제목 ── */
+.section.ai-qa .text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;           /* 아래 여백 */
+}
+
+/* ── 설명 텍스트 ── */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;           /* 아래 여백 */
+  max-width: 500px;              /* 가독성을 위한 최대 너비 */
+}
+
+/* ── 기능 목록 (feature-list) ── */
+.feature-list {
+  list-style: none;              /* ③ 불릿(.) 제거 */
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;           /* 항목 간격 */
+}
+
+.feature-list li .icon-toggle {
+  width: 20px;                   /* ② 아이콘 크기 절반으로 줄임 */
+  height: 20px;
+  margin-right: 12px;            /* 아이콘과 텍스트 간격 */
+}

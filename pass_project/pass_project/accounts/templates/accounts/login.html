@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+</head>
+<body>
+    <div id="login-container">
+        <div class="container-body">
+            <div class="left-container">
+                <div class="header">
+                    <div id="logo-container">
+                        <img id="logo-img" src="{% static 'accounts/images/logo.png' %}" alt="logo"/>
+                        <!--<img id="logo-img" src="C:\sungwon_project\SKN_final\final_project\2nd_\django\pass_project\accounts\static\accounts\images\logo.png" />-->
+                    </div>
+                    <div id="logo-title">
+                        PASS
+                    </div>
+                </div>
+                <div class="left-container-align-center">
+                    <div class="login-container">
+                        {% csrf_token %}
+                        <div class="login-title interval">
+                            <div id="div-login-title">로그인</div>
+                        </div>
+                        <div class="login-id interval">
+                            <div class="login-id-pw-font">아이디</div>
+                            <input id="input-id" type="text" placeholder="아이디를 입력해주세요." />
+                            <div id="warn-id">※ 아이디가 존재하지 않습니다.</div>
+                        </div>
+                        <div class="login-pw interval">
+                            <div class="login-id-pw-font">비밀번호</div>
+                            <input id="input-pw" type="password" placeholder="비밀번호를 입력해주세요." />
+                            <div id="warn-pw">※ 비밀번호가 틀렸습니다.</div>
+                        </div>
+                        <div class="login-check interval">
+                            <input id="input-login-check" type="checkbox" value=1/>
+                            <div id="login-status">로그인 상태 유지</div>
+                        </div>
+                        <div class="login-button interval" style="margin-bottom:30px;">
+                            <button id="login-btn">로그인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="right-container-align-center">
+                    <div class="introduce-box">
+                        <div class="introduce-title">
+                            <img id="bulb-lights" src="{% static 'accounts/images/bulb-lights.png' %}" />
+                            <span id="intro-title">PASS에서 뵙게 되어 반갑습니다</span>
+                        </div>
+                        <div class="introduce-content">
+                            <div class="chapter"><img class="checkmark" src="{% static 'accounts/images/checkmark.png' %}" /> 비전문가도 가능한 특허 명세서 작성</div>
+                            <div class="chapter"><img class="checkmark" src="{% static 'accounts/images/checkmark.png' %}" /> 쉽고 빠른 중복 특허 검사</div>
+                            <div class="chapter"><img class="checkmark" src="{% static 'accounts/images/checkmark.png' %}" /> 특허의 3대 요소 평가</div>
+                            <div class="chapter"><img class="checkmark" src="{% static 'accounts/images/checkmark.png' %}" /> 개선 방향을 제시하는 추천</div>
+                            <div class="chapter"><img class="checkmark" src="{% static 'accounts/images/checkmark.png' %}" /> 특허에 대한 모든 정보를 알려주는 Q&A 시스템</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="{% static 'accounts/login.js' %}"></script>
+    </div>
+</body>
+</html>

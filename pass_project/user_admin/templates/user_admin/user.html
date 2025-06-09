@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User 관리자 페이지</title>
+  <link rel="stylesheet" href="{% static 'user_admin/user.css' %}">
+</head>
+<body>
+  <div class="wrapper"> 
+    <div class="header">
+      <div class="logo">
+        <img src="{% static 'user_admin/img/logo_white.png' %}" alt="logo">
+        <span>PASS</span>
+      </div>
+      <h1>관리자 페이지</h1>
+      <div class="tab-nav">
+        <button class="tab" onclick="location.href='group.html'">Group</button>
+        <button class="tab active">User</button>
+        
+      </div>
+    </div>
+      <main class="main-container">
+        <section class="user-list-section">
+          <h2>사용자 목록</h2>
+          <ul class="user-list">
+            <li>user1 <span><img src="{% static 'user_admin/img/lock.png' %}" /><img src="{% static 'user_admin/img/stop.png' %}" /></span></li>
+            <li>user2 <span><img src="{% static 'user_admin/img/lock.png' %}" /><img src="{% static 'user_admin/img/stop.png' %}" /></span></li>
+            <li>user3 <span><img src="{% static 'user_admin/img/lock.png' %}" /><img src="{% static 'user_admin/img/stop.png' %}" /></span></li>
+            <li>user4 <span><img src="{% static 'user_admin/img/lock.png' %}" /><img src="{% static 'user_admin/img/stop.png' %}" /></span></li>
+          </ul>
+          <button class="add-user">+ 사용자 생성</button>
+        </section>
+
+        <section class="log-section">
+          <h2>사용자 접속 로그</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>상태</th>
+                <th>사용자</th>
+                <th>로그인 시간</th>
+                <th>로그아웃 시간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="status pink"></span></td>
+                <td>user1</td>
+                <td>2025-05-19 13:20:31</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td><span class="status gray"></span></td>
+                <td>user2</td>
+                <td>2025-05-19 13:30:31</td>
+                <td>2025-05-19 13:40:31</td>
+              </tr>
+              <tr>
+                <td><span class="status gray"></span></td>
+                <td>user3</td>
+                <td>2025-05-19 13:30:31</td>
+                <td>2025-05-19 13:40:31</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+</body>
+</html>

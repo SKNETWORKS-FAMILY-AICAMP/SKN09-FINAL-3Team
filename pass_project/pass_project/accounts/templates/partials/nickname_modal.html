@@ -1,0 +1,19 @@
+<div id="nickModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>닉네임 변경</h3>
+
+    <label>현재 닉네임</label>
+    <p>{{ user.username }}</p>
+
+    <label for="newNick">새 닉네임</label>
+    <input type="text" id="newNick" placeholder="닉네임을 입력하세요">
+
+    <div class="btn-group">
+      <button id="nickCheckBtn">중복확인</button>
+      <button id="nickSaveBtn">확인</button>
+      <button id="nickCancelBtn">취소</button>
+    </div>
+
+    <p id="nickMsg" class="msg"></p>
+  </div>
+</div>

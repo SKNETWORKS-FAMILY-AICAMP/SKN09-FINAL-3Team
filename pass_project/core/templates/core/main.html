@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PASS - Patent AI Support Service</title>
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo" onclick="goToHomepage()">
+      <img src="{% static 'core/images/logo.png' %}" alt="PASS Logo" />
+      <span>PASS</span>
+    </div>
+    <nav>
+      <a href="#" onclick="goToAIassistpage()">AI assist</a>
+      <a href="#" onclick="goToAIqapage(); return false;">AI Q&A</a>
+      <a href="#" onclick="goToLoginpage()">로그인</a>
+    </nav>
+  </header>
+
+  <!-- 1) 첫 화면: background.jpg -->
+  <main class="hero">
+    {% comment %} 
+    <p class="subtext">사내 임직원의 아이디어, AI로 특허까지</p>
+    <h1>Patent <span class="highlight">AI Support Service</span></h1>
+    <p class="footer-text">Patent AI – 당신의 아이디어를 권리로 바꿉니다</p> 
+    {% endcomment %}
+  </main>
+
+  <!-- 2) 두 번째 섹션: service_info.jpg -->
+  <section class="section info">
+  </section>
+
+  <!-- 3) 세 번째 섹션: service_features.jpg -->
+  <section class="section features">
+  </section>
+
+
+
+  <!-- 4) AI Assist 섹션: 오른쪽에 이미지, 왼쪽에 텍스트 -->
+  <section class="section ai-assist">
+    <div class="content">
+      <div class="text">
+        <!-- 상단 체크 아이콘 + 한 줄 텍스트 -->
+        <div class="intro-line">
+          <img src="{% static 'core/images/check_icon.png' %}" alt="check icon" class="icon-check" />
+          PASS는 이런 서비스를 지원해요.
+        </div>
+
+        <!-- 큰 제목 -->
+        <h2>생각을 특허 형식으로 정리해드립니다.</h2>
+
+        <!-- 설명 텍스트 -->
+        <div class="description">
+          업무 중 떠오른 아이디어를 문서화하기 어려우셨나요?<br />
+          PASS가 기술 내용을 특허 문서 형식으로 작성하는 걸 도와드릴게요.
+        </div><br><br>
+
+        <!-- 기능 목록: 왼쪽에 토글 아이콘 -->
+        <ul class="feature-list">
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            기술적 표현 정리
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            청구항 및 명세서 초안 작성 지원
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            초안에 대한 피드백 제공
+          </li><br><br><br><br><br>
+        </ul>
+      </div>
+
+      <div class="image">
+        <img src="{% static 'core/images/ai_assistant.jpg' %}" alt="AI Assist 이미지" />
+      </div>
+    </div>
+  </section>
+  
+
+
+  <!-- 5) AI Evaluate 섹션: 왼쪽에 이미지, 오른쪽에 텍스트 -->
+  <section class="section ai-evaluate">
+    <div class="content">
+      <div class="image">
+        <img src="{% static 'core/images/ai_evaluate.jpg' %}" alt="AI Evaluate 이미지" />
+      </div>
+
+      <div class="text">
+        <!-- 상단 체크 아이콘 + 한 줄 텍스트 -->
+        <div class="intro-line">
+          <img src="{% static 'core/images/check_icon.png' %}" alt="check icon" class="icon-check" />
+          PASS는 이런 서비스를 지원해요.
+        </div>
+
+        <!-- 큰 제목 -->
+        <h2>작성한 문서, 부족한 부분을 짚어드립니다.</h2>
+
+        <!-- 설명 텍스트 -->
+        <div class="description">
+          작성한 문서에 대한 검증이 필요하다면 PASS에게 맡겨보세요!<br/>
+          당신이 작성한 문서에 대한 친절한 검토 서비스를 제공합니다.
+        </div><br><br>
+
+        <!-- 기능 목록: 왼쪽에 토글 아이콘 -->
+        <ul class="feature-list">
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            특허 3요소 토대로 특허 명세서 평가
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            표현 보완 및 기술적 누락 지적
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            특법 인용 피드백
+          </li><br><br><br><br><br>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 6) AI Recommend 섹션: 오른쪽에 이미지, 왼쪽에 텍스트 -->
+  <section class="section ai-recommend">
+    <div class="content">
+      <div class="text">
+        <!-- 상단 체크 아이콘 + 한 줄 텍스트 -->
+        <div class="intro-line">
+          <img src="{% static 'core/images/check_icon.png' %}" alt="check icon" class="icon-check" />
+          PASS는 이런 서비스를 지원해요.
+        </div>
+
+        <!-- 큰 제목 -->
+        <h2>작성하신 특허 문서의 개선점을 제시합니다.</h2>
+
+        <!-- 설명 텍스트 -->
+        <div class="description">
+          검토완료된 특허 문서에 대한 전문적인 보안 방안을 추천해드립니다.<br/>
+          PASS와 함께 완성도 높은 특허 문서를 만들어보세요!
+        </div><br><br>
+
+        <!-- 기능 목록: 왼쪽에 토글 아이콘 -->
+        <ul class="feature-list">
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            평가 기반 특허 명세서 추천
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            문서 품질 향상을 위한 보완점 도출
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            재추천 기능 제공
+          </li><br><br><br><br><br>
+        </ul>
+      </div>
+
+      <div class="image">
+        <img src="{% static 'core/images/ai_recommend.jpg' %}" alt="AI Recommend 이미지" />
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 7) AI Q&A 섹션: 왼쪽에 이미지, 오른쪽에 텍스트 -->
+  <section class="section ai-qa">
+    <div class="content">
+      <div class="image">
+        <img src="{% static 'core/images/ai_qa.jpg' %}" alt="AI QA 이미지" />
+      </div>
+
+      <div class="text">
+        <!-- 상단 체크 아이콘 + 한 줄 텍스트 -->
+        <div class="intro-line">
+          <img src="{% static 'core/images/check_icon.png' %}" alt="check icon" class="icon-check" />
+          PASS는 이런 서비스를 지원해요.
+        </div>
+
+        <!-- 큰 제목 -->
+        <h2>특허 관련 법, 유사 특허 정보를 제공해드립니다.</h2>
+
+        <!-- 설명 텍스트 -->
+        <div class="description">
+          내가 낸 아이디어에 대한 유사 특허가 있는지 알고싶으셨지만, 일일히 찾기 불편하셨나요? 또는 특법에 적용될만한 부분이 있는지 궁금하셨나요?<br/>
+          PASS에게 물어보세요!
+        </div><br><br>
+
+        <!-- 기능 목록: 왼쪽에 토글 아이콘 -->
+        <ul class="feature-list">
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            유사 특허 탐색 기능 지원
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            특허 법 심사기준 안내
+          </li><br><br>
+          <li>
+            <img src="{% static 'core/images/toggle_icon.png' %}" alt="toggle icon" class="icon-toggle" />
+            기술분야별 선행자료 제안
+          </li><br><br><br><br>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마이 페이지</title>
+  <link rel="stylesheet" href="{% static 'accounts/mypage.css' %}">
+</head>
+<body>
+  <!-- 헤더는 container 밖으로 이동 -->
+  <header class="header">
+    <div class="header-content">
+      <img src="{% static 'accounts/images/logo_white.png' %}" alt="로고" class="logo">
+      <span class="logo-text">PASS</span>
+    </div>
+    <h1 class="page-title">마이 페이지</h1>
+  </header>
+
+  <div class="container">
+    <div class="main-wrapper">
+      <!-- 사이드바 -->
+      <aside class="sidebar">
+        <ul class="menu">
+          <li><a href="{% url 'accounts:mypage' %}">• 내 정보</a></li>
+          <li><a href="{% url 'accounts:repassword' %}">• 비밀번호 재설정</a></li>
+        </ul>
+      </aside>
+
+      <!-- 메인 콘텐츠 -->
+      <main class="main-panel">
+        <h2 class="panel-title">내 정보</h2>
+
+        <div class="info-card">
+          <div class="info-label-zone">
+            <div>닉네임</div>
+            <div>소속 부서</div>
+          </div>
+          <div class="info-value-zone">
+            <div class="nickname-row">
+              <div>{{ user.username|default:"사용자" }}</div>
+              <button class="btn-change" id="btn-nick">변경</button>
+            </div>
+            <div>{{ user.profile.department|default:"부서 미지정" }}</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+  <!-- 닉네임 변경 모달 -->
+  <div id="nicknameModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>
+        <img src="{% static 'accounts/images/id-card.png' %}" width="28" />
+        닉네임 변경
+      </h2>
+      <hr />
+      <div class="modal-row">
+        <div class="modal-label">기존 닉네임</div>
+        <div class="modal-value">{{ user.username }}</div>
+      </div>
+      <div class="modal-row modal-input">
+        <div class="modal-label">변경 닉네임</div>
+        <input type="text" id="new-nick" placeholder="닉네임을 입력해 주세요." />
+        <button id="dup-check-btn">중복확인</button>
+      </div>
+      <div class="modal-buttons">
+        <button class="cancel-btn">취소</button>
+        <button class="confirm-btn">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("btn-nick").addEventListener("click", () => {
+      document.getElementById("nicknameModal").classList.remove("hidden");
+    });
+
+    document.querySelector(".cancel-btn").addEventListener("click", () => {
+      document.getElementById("nicknameModal").classList.add("hidden");
+    });
+
+    document.querySelector(".confirm-btn").addEventListener("click", () => {
+      const newNick = document.getElementById("new-nick").value.trim();
+      if (!newNick) {
+        alert("닉네임을 입력해 주세요.");
+        return;
+      }
+      // TODO: 닉네임 저장 처리 (AJAX or form)
+      alert("변경 완료!");
+      document.getElementById("nicknameModal").classList.add("hidden");
+    });
+
+    document.getElementById("dup-check-btn").addEventListener("click", () => {
+      const newNick = document.getElementById("new-nick").value.trim();
+      if (!newNick) {
+        alert("닉네임을 입력해 주세요.");
+        return;
+      }
+      // TODO: 닉네임 중복확인 처리
+      alert(`"${newNick}" 은(는) 사용 가능합니다.`);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 관리자 페이지</title>
+  <link rel="stylesheet" href="{% static 'user_admin/group.css' %}" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo">
+        <img src="{% static 'user_admin/img/logo_white.png' %}" alt="logo">
+        <span>PASS</span>
+      </div>
+      <h1>관리자 페이지</h1>
+      <div class="tab-nav">
+        <button class="tab active">Group</button>
+        <button class="tab" onclick="location.href='user.html'">User</button>
+      </div>
+    </div>
+
+    <main class="main-container">
+      <section class="user-list-section">
+        <h2>그룹 목록</h2>
+        <ul class="user-list">
+          {% for group in groups %}
+          <li>
+            {{ group }}
+            <span>
+              <img src="{% static 'user_admin/img/pluse.png' %}" alt="추가" />
+              <img src="{% static 'user_admin/img/stop.png' %}" alt="정지" />
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+        <button class="add-user">+ 그룹 생성</button>
+      </section>
+
+      <section class="log-section">
+        <h2>그룹 내 사용자</h2>
+        {% for group in groups %}
+        <div class="group-box {% if forloop.first %}expanded{% endif %}">
+          <div class="group-header" onclick="toggleGroup(this)">
+            <span>{{ group }}</span>
+            <img class="toggle-icon" src="{% static 'user_admin/img/' %}{% if forloop.first %}up.png{% else %}down.png{% endif %}" alt="토글" />
+          </div>
+          <ul class="group-user-list" {% if not forloop.first %}style="display:none;"{% endif %}>
+            <li><span class="status pink"></span><span class="username">사용자1</span></li>
+            <li><span class="status gray"></span><span class="username">사용자2</span></li>
+          </ul>
+        </div>
+        {% endfor %}
+      </section>
+    </main>
+  </div>
+
+  <script src="{% static 'user_admin/group.js' %}"></script>
+</body>
+</html>
